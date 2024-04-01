@@ -1,0 +1,7 @@
+set(VIRTUAL_HEADER "${Workshop_SOURCE_DIR}/include/virtual/example.h")
+add_library(virtuallib virtual/example.cpp ${VIRTUAL_HEADER})
+target_include_directories(virtuallib PUBLIC ../include)
+include(FetchContent)
+FetchContent_Declare(fmt GIT_REPOSITORY https://github.com/fmtlib/fmt)
+FetchContent_MakeAvailable(fmt)
+target_link_libraries(virtuallib fmt::fmt)
